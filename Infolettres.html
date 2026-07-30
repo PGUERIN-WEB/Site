@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Services d'infolettres : planification éditoriale, rédaction, révision, création de modèles, intégration des contenus, préparation des envois et analyse des résultats.">
+  <title>Infolettres | Pascale Guérin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bleu: #013d5a;
+      --creme: #fcf3e3;
+      --sauge: #bdd3ce;
+      --vert: #708c69;
+      --blanc: #fffdf9;
+      --texte: #26363d;
+      --texte-doux: #5d6d73;
+      --bordure: #d8e2df;
+      --ombre: 0 18px 45px rgba(1, 61, 90, 0.12);
+      --rayon: 22px;
+      --largeur: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--texte);
+      background: var(--blanc);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      color: var(--bleu);
+      line-height: 1.15;
+    }
+
+    h1, h2 {
+      font-family: "Playfair Display", Georgia, serif;
+    }
+
+    h1 {
+      max-width: 930px;
+      margin-bottom: 24px;
+      font-size: clamp(2.7rem, 5.5vw, 5rem);
+      letter-spacing: -0.035em;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+    }
+
+    p { margin-top: 0; }
+
+    .conteneur {
+      width: min(var(--largeur), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .sur-titre {
+      margin-bottom: 14px;
+      color: var(--vert);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .texte-intro {
+      max-width: 850px;
+      color: var(--texte-doux);
+      font-size: 1.12rem;
+    }
+
+    .bouton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 22px;
+      border: 1px solid var(--bleu);
+      border-radius: 999px;
+      background: var(--bleu);
+      color: white;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .bouton:hover {
+      transform: translateY(-2px);
+      background: #002f46;
+    }
+
+    .entete {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(1, 61, 90, 0.08);
+      background: rgba(255, 253, 249, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .navigation {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .marque {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .monogramme {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--bleu);
+      color: white;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+    }
+
+    .nom-marque strong {
+      display: block;
+      color: var(--bleu);
+      font-size: 1rem;
+    }
+
+    .nom-marque span {
+      color: var(--texte-doux);
+      font-size: 0.72rem;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .menu a:hover { color: var(--vert); }
+
+    .hero-page {
+      padding-block: 110px 90px;
+      background:
+        radial-gradient(circle at 88% 10%, rgba(189, 211, 206, 0.78), transparent 26%),
+        linear-gradient(135deg, var(--creme), var(--blanc));
+    }
+
+    .hero-page .texte-intro { font-size: 1.18rem; }
+
+    .encadre-intro {
+      max-width: 880px;
+      margin-top: 34px;
+      padding: 22px 25px;
+      border-left: 5px solid var(--vert);
+      border-radius: 0 16px 16px 0;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--texte-doux);
+    }
+
+    section { padding-block: 100px; }
+
+    .fond-creme { background: var(--creme); }
+    .fond-sauge { background: #edf3f1; }
+    .en-tete-section { margin-bottom: 46px; }
+
+    .grille-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .carte {
+      padding: 32px;
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon);
+      background: white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .carte:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--ombre);
+    }
+
+    .carte p,
+    .carte li { color: var(--texte-doux); }
+
+    .carte ul {
+      margin: 18px 0 0;
+      padding-left: 20px;
+    }
+
+    .carte li + li { margin-top: 8px; }
+
+    .etapes {
+      counter-reset: etape;
+      display: grid;
+      gap: 18px;
+      max-width: 920px;
+    }
+
+    .etape {
+      position: relative;
+      padding: 26px 28px 26px 84px;
+      border: 1px solid var(--bordure);
+      border-radius: 18px;
+      background: white;
+    }
+
+    .etape::before {
+      counter-increment: etape;
+      content: counter(etape);
+      position: absolute;
+      left: 24px;
+      top: 23px;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--bleu);
+      color: white;
+      font-weight: 700;
+    }
+
+    .defis {
+      display: grid;
+      gap: 14px;
+    }
+
+    .defi {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 26px 30px;
+      border-bottom: 1px solid var(--bordure);
+    }
+
+    .defi strong {
+      color: var(--bleu);
+      font-size: 1.08rem;
+    }
+
+    .defi span { color: var(--texte-doux); }
+
+    .precision {
+      padding: 38px;
+      border-radius: 24px;
+      background: var(--sauge);
+    }
+
+    .precision h2 { font-size: 2rem; }
+    .precision p:last-child { margin-bottom: 0; }
+
+    .appel {
+      padding: 58px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      border-radius: 30px;
+      background: var(--bleu);
+      color: white;
+    }
+
+    .appel h2,
+    .appel p { color: white; }
+
+    .appel p {
+      margin-bottom: 0;
+      opacity: 0.86;
+    }
+
+    .appel .bouton {
+      border-color: white;
+      background: var(--creme);
+      color: var(--bleu);
+    }
+
+    .pied {
+      padding-block: 42px;
+      border-top: 1px solid var(--bordure);
+      background: var(--blanc);
+    }
+
+    .pied-interieur {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      color: var(--texte-doux);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      .menu { display: none; }
+      .grille-details { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 650px) {
+      section { padding-block: 72px; }
+
+      .conteneur {
+        width: min(var(--largeur), calc(100% - 26px));
+      }
+
+      .nom-marque span { display: none; }
+
+      .defi,
+      .appel { grid-template-columns: 1fr; }
+
+      .appel { padding: 38px 28px; }
+      .etape { padding-left: 72px; }
+
+      .pied-interieur {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="entete">
+    <div class="conteneur navigation">
+      <a class="marque" href="index.html" aria-label="Retour à l'accueil">
+        <span class="monogramme">PG</span>
+        <span class="nom-marque">
+          <strong>Pascale Guérin</strong>
+          <span>Infolettres • Rédaction • Communication interne</span>
+        </span>
+      </a>
+
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#approche">Mon approche</a>
+        <a href="#besoins">Vos besoins</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-page">
+      <div class="conteneur">
+        <p class="sur-titre">Infolettres</p>
+
+        <h1>Transformer l'information en une communication attendue, claire et utile.</h1>
+
+        <p class="texte-intro">
+          Une infolettre efficace ne consiste pas seulement à regrouper des nouvelles.
+          Elle doit proposer une structure claire, un rythme cohérent, une présentation
+          professionnelle et des contenus adaptés aux personnes qui la reçoivent.
+        </p>
+
+        <div class="encadre-intro">
+          <strong>Je peux prendre en charge l'ensemble du cycle éditorial dans un outil déjà configuré.</strong>
+          Mon intervention peut couvrir la planification, la rédaction, la révision,
+          la création ou l'adaptation du modèle, l'intégration des contenus,
+          la préparation de l'envoi et l'analyse des résultats.
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Ce que je peux faire pour vous</p>
+          <h2>Une infolettre structurée de la collecte des contenus jusqu'à l'envoi.</h2>
+          <p class="texte-intro">
+            J'organise le travail éditorial afin de simplifier la contribution des équipes,
+            d'assurer la qualité des contenus et de maintenir une expérience cohérente
+            d'une édition à l'autre.
+          </p>
+        </div>
+
+        <div class="grille-details">
+          <article class="carte">
+            <h3>Planifier les contenus</h3>
+            <p>
+              Je mets en place une organisation éditoriale qui facilite la préparation
+              des éditions et réduit les demandes de dernière minute.
+            </p>
+            <ul>
+              <li>Définition de la fréquence et du calendrier de publication</li>
+              <li>Choix des rubriques et de la structure récurrente</li>
+              <li>Planification des thèmes et des contenus prioritaires</li>
+              <li>Coordination des personnes contributrices</li>
+              <li>Échéancier de collecte, de validation et d'envoi</li>
+              <li>Suivi des sujets à reporter ou à reprendre</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Rédiger et réviser</h3>
+            <p>
+              Je transforme les contenus reçus en textes courts, clairs et adaptés
+              à une lecture rapide sur écran.
+            </p>
+            <ul>
+              <li>Rédaction des titres, introductions et résumés</li>
+              <li>Révision linguistique et uniformisation du ton</li>
+              <li>Vulgarisation de contenus complexes</li>
+              <li>Hiérarchisation de l'information</li>
+              <li>Création d'appels à l'action</li>
+              <li>Adaptation aux différents publics internes ou externes</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Créer ou adapter le modèle</h3>
+            <p>
+              Je conçois une présentation cohérente avec l'identité visuelle
+              et suffisamment simple pour être maintenue dans le temps.
+            </p>
+            <ul>
+              <li>Création ou révision du gabarit</li>
+              <li>Organisation des sections et des rubriques</li>
+              <li>Application de l'identité visuelle</li>
+              <li>Choix d'une hiérarchie claire</li>
+              <li>Préparation des images, bannières et boutons</li>
+              <li>Adaptation aux contenus récurrents</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Intégrer et préparer l'envoi</h3>
+            <p>
+              J'intègre les contenus dans votre plateforme existante et j'effectue
+              les vérifications nécessaires avant la diffusion.
+            </p>
+            <ul>
+              <li>Intégration des textes, images et liens</li>
+              <li>Mise en page et vérification visuelle</li>
+              <li>Validation des hyperliens</li>
+              <li>Préparation de l'objet et du texte d'aperçu</li>
+              <li>Envoi de tests</li>
+              <li>Programmation ou préparation de l'envoi final</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-creme">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Gestion et amélioration continue</p>
+          <h2>Maintenir une infolettre cohérente, crédible et facile à produire.</h2>
+          <p class="texte-intro">
+            Une infolettre gagne en efficacité lorsqu'elle repose sur des règles simples,
+            une structure stable et un suivi régulier de ce qui fonctionne.
+          </p>
+        </div>
+
+        <div class="grille-details">
+          <article class="carte">
+            <h3>Organiser le processus éditorial</h3>
+            <p>
+              Je peux formaliser une façon de faire qui clarifie les responsabilités
+              et accélère la production de chaque édition.
+            </p>
+            <ul>
+              <li>Formulaire ou méthode de collecte des contenus</li>
+              <li>Consignes destinées aux contributeurs</li>
+              <li>Critères de sélection et de priorisation</li>
+              <li>Processus de validation</li>
+              <li>Règles de longueur et de format</li>
+              <li>Archivage des éditions et des contenus</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Assurer la cohérence des éditions</h3>
+            <p>
+              Je veille à ce que le ton, la structure et la qualité visuelle demeurent
+              uniformes malgré la diversité des sujets et des contributeurs.
+            </p>
+            <ul>
+              <li>Ton rédactionnel cohérent</li>
+              <li>Rubriques et repères récurrents</li>
+              <li>Uniformisation des titres et des résumés</li>
+              <li>Respect de l'identité visuelle</li>
+              <li>Révision des contenus soumis</li>
+              <li>Contrôle de la qualité avant diffusion</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Analyser les résultats</h3>
+            <p>
+              Lorsque la plateforme le permet, j'utilise les statistiques pour
+              améliorer progressivement le contenu et la présentation.
+            </p>
+            <ul>
+              <li>Taux d'ouverture</li>
+              <li>Taux de clics</li>
+              <li>Liens et sujets les plus consultés</li>
+              <li>Évolution des résultats d'une édition à l'autre</li>
+              <li>Repérage des rubriques moins performantes</li>
+              <li>Recommandations d'amélioration</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Adapter l'infolettre aux changements</h3>
+            <p>
+              Je peux mettre à jour le modèle lors d'un changement d'identité,
+              de structure organisationnelle ou d'orientation éditoriale.
+            </p>
+            <ul>
+              <li>Mise à jour du logo et de l'appellation</li>
+              <li>Révision des couleurs et des éléments graphiques</li>
+              <li>Modification des coordonnées et mentions légales</li>
+              <li>Mise à jour des liens vers les médias sociaux</li>
+              <li>Révision des rubriques</li>
+              <li>Harmonisation de plusieurs infolettres</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-sauge" id="approche">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Mon approche</p>
+          <h2>Une production éditoriale rigoureuse, mais simple pour les équipes.</h2>
+          <p class="texte-intro">
+            Je cherche à réduire la complexité du processus tout en maintenant
+            une grande qualité rédactionnelle et visuelle.
+          </p>
+        </div>
+
+        <div class="etapes">
+          <div class="etape">
+            <strong>Définir le rôle de l'infolettre.</strong><br>
+            Je précise les objectifs, les publics, la fréquence et la place de
+            l'infolettre parmi les autres canaux de communication.
+          </div>
+
+          <div class="etape">
+            <strong>Structurer le modèle et les rubriques.</strong><br>
+            J'établis une organisation claire qui facilite la lecture et la
+            préparation des prochaines éditions.
+          </div>
+
+          <div class="etape">
+            <strong>Collecter et préparer les contenus.</strong><br>
+            Je coordonne les contributions, je rédige ou révise les textes et
+            je prépare les éléments visuels.
+          </div>
+
+          <div class="etape">
+            <strong>Intégrer, tester et valider.</strong><br>
+            Je mets en page l'édition, je vérifie les liens et la présentation
+            et je fais valider la version finale.
+          </div>
+
+          <div class="etape">
+            <strong>Diffuser et améliorer.</strong><br>
+            Je prépare l'envoi et, lorsque les données sont disponibles,
+            j'analyse les résultats afin d'améliorer les éditions suivantes.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="besoins">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Pour quels besoins?</p>
+          <h2>Cette expertise peut vous aider si...</h2>
+        </div>
+
+        <div class="defis">
+          <div class="defi">
+            <strong>Votre infolettre est longue et difficile à parcourir.</strong>
+            <span>
+              Je restructure les contenus afin de faciliter la lecture et de faire ressortir les messages prioritaires.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Les contenus arrivent tard ou dans des formats très différents.</strong>
+            <span>
+              Je mets en place un processus de collecte et des consignes simples pour les contributeurs.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Chaque édition demande trop de temps à produire.</strong>
+            <span>
+              Je crée un modèle stable, des rubriques récurrentes et une méthode de travail plus efficace.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Le ton et la qualité varient selon les personnes qui contribuent.</strong>
+            <span>
+              Je rédige, révise et uniformise les contenus avant leur diffusion.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Vous ne savez pas quels contenus intéressent réellement vos lecteurs.</strong>
+            <span>
+              J'analyse les statistiques disponibles et je formule des recommandations concrètes.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Votre identité ou votre organisation a changé.</strong>
+            <span>
+              Je mets à jour le gabarit, les coordonnées, les liens et les éléments visuels de vos infolettres.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="conteneur">
+        <div class="precision">
+          <h2>Une précision importante</h2>
+          <p>
+            Je travaille dans une plateforme d'envoi déjà choisie et configurée par
+            l'organisation. Je peux notamment créer ou adapter le modèle, intégrer
+            les contenus, préparer les envois et analyser les statistiques disponibles.
+          </p>
+          <p>
+            Mon intervention ne comprend pas l'acquisition, l'implantation technique
+            ni l'administration complète d'une nouvelle plateforme d'infolettres.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="conteneur">
+        <div class="appel">
+          <div>
+            <p class="sur-titre" style="color: #bdd3ce;">Parlons de votre infolettre</p>
+            <h2>Votre infolettre pourrait-elle être plus claire, plus constante et plus utile?</h2>
+            <p>
+              Une première discussion permettra de préciser vos besoins,
+              votre fonctionnement actuel et les améliorations les plus pertinentes.
+            </p>
+          </div>
+
+          <a class="bouton" href="mailto:pascale.guerin@hotmail.com">
+            Discuter de mon besoin
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur pied-interieur">
+      <div>
+        <strong style="color: var(--bleu);">Pascale Guérin</strong><br>
+        Structurer l'information. Simplifier les communications.
+      </div>
+
+      <div>© 2026 Pascale Guérin. Tous droits réservés.</div>
+    </div>
+  </footer>
+</body>
+</html>

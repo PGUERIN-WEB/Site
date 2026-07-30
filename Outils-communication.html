@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Outils de communication : guides, présentations, infographies, gabarits, documents corporatifs, affichage, signalisation et contenus visuels professionnels.">
+  <title>Outils de communication | Pascale Guérin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bleu: #013d5a;
+      --creme: #fcf3e3;
+      --sauge: #bdd3ce;
+      --vert: #708c69;
+      --blanc: #fffdf9;
+      --texte: #26363d;
+      --texte-doux: #5d6d73;
+      --bordure: #d8e2df;
+      --ombre: 0 18px 45px rgba(1, 61, 90, 0.12);
+      --rayon: 22px;
+      --largeur: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--texte);
+      background: var(--blanc);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      color: var(--bleu);
+      line-height: 1.15;
+    }
+
+    h1, h2 {
+      font-family: "Playfair Display", Georgia, serif;
+    }
+
+    h1 {
+      max-width: 930px;
+      margin-bottom: 24px;
+      font-size: clamp(2.7rem, 5.5vw, 5rem);
+      letter-spacing: -0.035em;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+    }
+
+    p { margin-top: 0; }
+
+    .conteneur {
+      width: min(var(--largeur), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .sur-titre {
+      margin-bottom: 14px;
+      color: var(--vert);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .texte-intro {
+      max-width: 850px;
+      color: var(--texte-doux);
+      font-size: 1.12rem;
+    }
+
+    .bouton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 22px;
+      border: 1px solid var(--bleu);
+      border-radius: 999px;
+      background: var(--bleu);
+      color: white;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .bouton:hover {
+      transform: translateY(-2px);
+      background: #002f46;
+    }
+
+    .entete {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(1, 61, 90, 0.08);
+      background: rgba(255, 253, 249, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .navigation {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .marque {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .monogramme {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--bleu);
+      color: white;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+    }
+
+    .nom-marque strong {
+      display: block;
+      color: var(--bleu);
+      font-size: 1rem;
+    }
+
+    .nom-marque span {
+      color: var(--texte-doux);
+      font-size: 0.72rem;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .menu a:hover { color: var(--vert); }
+
+    .hero-page {
+      padding-block: 110px 90px;
+      background:
+        radial-gradient(circle at 88% 10%, rgba(189, 211, 206, 0.78), transparent 26%),
+        linear-gradient(135deg, var(--creme), var(--blanc));
+    }
+
+    .hero-page .texte-intro { font-size: 1.18rem; }
+
+    .encadre-intro {
+      max-width: 880px;
+      margin-top: 34px;
+      padding: 22px 25px;
+      border-left: 5px solid var(--vert);
+      border-radius: 0 16px 16px 0;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--texte-doux);
+    }
+
+    section { padding-block: 100px; }
+
+    .fond-creme { background: var(--creme); }
+    .fond-sauge { background: #edf3f1; }
+    .en-tete-section { margin-bottom: 46px; }
+
+    .grille-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .carte {
+      padding: 32px;
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon);
+      background: white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .carte:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--ombre);
+    }
+
+    .carte p,
+    .carte li { color: var(--texte-doux); }
+
+    .carte ul {
+      margin: 18px 0 0;
+      padding-left: 20px;
+    }
+
+    .carte li + li { margin-top: 8px; }
+
+    .etapes {
+      counter-reset: etape;
+      display: grid;
+      gap: 18px;
+      max-width: 920px;
+    }
+
+    .etape {
+      position: relative;
+      padding: 26px 28px 26px 84px;
+      border: 1px solid var(--bordure);
+      border-radius: 18px;
+      background: white;
+    }
+
+    .etape::before {
+      counter-increment: etape;
+      content: counter(etape);
+      position: absolute;
+      left: 24px;
+      top: 23px;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--bleu);
+      color: white;
+      font-weight: 700;
+    }
+
+    .defis {
+      display: grid;
+      gap: 14px;
+    }
+
+    .defi {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 26px 30px;
+      border-bottom: 1px solid var(--bordure);
+    }
+
+    .defi strong {
+      color: var(--bleu);
+      font-size: 1.08rem;
+    }
+
+    .defi span { color: var(--texte-doux); }
+
+    .precision {
+      padding: 38px;
+      border-radius: 24px;
+      background: var(--sauge);
+    }
+
+    .precision h2 { font-size: 2rem; }
+    .precision p:last-child { margin-bottom: 0; }
+
+    .appel {
+      padding: 58px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      border-radius: 30px;
+      background: var(--bleu);
+      color: white;
+    }
+
+    .appel h2,
+    .appel p { color: white; }
+
+    .appel p {
+      margin-bottom: 0;
+      opacity: 0.86;
+    }
+
+    .appel .bouton {
+      border-color: white;
+      background: var(--creme);
+      color: var(--bleu);
+    }
+
+    .pied {
+      padding-block: 42px;
+      border-top: 1px solid var(--bordure);
+      background: var(--blanc);
+    }
+
+    .pied-interieur {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      color: var(--texte-doux);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      .menu { display: none; }
+      .grille-details { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 650px) {
+      section { padding-block: 72px; }
+
+      .conteneur {
+        width: min(var(--largeur), calc(100% - 26px));
+      }
+
+      .nom-marque span { display: none; }
+
+      .defi,
+      .appel { grid-template-columns: 1fr; }
+
+      .appel { padding: 38px 28px; }
+      .etape { padding-left: 72px; }
+
+      .pied-interieur {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="entete">
+    <div class="conteneur navigation">
+      <a class="marque" href="index.html" aria-label="Retour à l'accueil">
+        <span class="monogramme">PG</span>
+        <span class="nom-marque">
+          <strong>Pascale Guérin</strong>
+          <span>Communication interne • Design graphique • Contenus numériques</span>
+        </span>
+      </a>
+
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#approche">Mon approche</a>
+        <a href="#besoins">Vos besoins</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-page">
+      <div class="conteneur">
+        <p class="sur-titre">Outils de communication</p>
+
+        <h1>Créer des outils clairs, cohérents et professionnels qui soutiennent vos messages.</h1>
+
+        <p class="texte-intro">
+          Un bon outil de communication ne doit pas seulement être attrayant.
+          Il doit faciliter la compréhension, respecter l'identité de l'organisation
+          et aider les employés, les gestionnaires ou les partenaires à retenir
+          l'information essentielle.
+        </p>
+
+        <div class="encadre-intro">
+          <strong>Mon expertise combine communication interne, design graphique et structuration de contenu.</strong>
+          Je conçois des outils adaptés au message, au public visé, au contexte d'utilisation
+          et aux standards visuels de votre organisation.
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Ce que je peux créer pour vous</p>
+          <h2>Des outils utiles pour informer, expliquer, mobiliser et accompagner.</h2>
+          <p class="texte-intro">
+            J'analyse le besoin, je simplifie le contenu et je choisis une présentation
+            visuelle qui met en valeur l'information sans la surcharger.
+          </p>
+        </div>
+
+        <div class="grille-details">
+          <article class="carte">
+            <h3>Guides, procédures et aide-mémoire</h3>
+            <p>
+              Je transforme des contenus techniques, administratifs ou organisationnels
+              en documents simples à consulter et faciles à utiliser.
+            </p>
+            <ul>
+              <li>Guides destinés aux employés ou aux gestionnaires</li>
+              <li>Procédures illustrées et pas à pas</li>
+              <li>Aide-mémoire et fiches pratiques</li>
+              <li>Documents d'accueil et d'intégration</li>
+              <li>Trousses d'information</li>
+              <li>Documents de référence internes</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Présentations professionnelles</h3>
+            <p>
+              Je structure et mets en forme vos présentations afin de rendre
+              les messages plus clairs, cohérents et convaincants.
+            </p>
+            <ul>
+              <li>Présentations de gestion</li>
+              <li>Présentations de projets</li>
+              <li>Documents destinés à des comités ou à la direction</li>
+              <li>Présentations de formation</li>
+              <li>Modèles PowerPoint corporatifs</li>
+              <li>Révision visuelle de présentations existantes</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Infographies et capsules visuelles</h3>
+            <p>
+              Je rends les contenus complexes plus accessibles grâce à une
+              hiérarchie visuelle claire et à des messages synthétiques.
+            </p>
+            <ul>
+              <li>Infographies explicatives</li>
+              <li>Capsules visuelles pour l'intranet ou les écrans</li>
+              <li>Schémas, étapes et processus</li>
+              <li>Visuels de sensibilisation</li>
+              <li>Résumé de données ou de consignes</li>
+              <li>Contenus adaptés aux communications internes</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Gabarits et documents corporatifs</h3>
+            <p>
+              Je crée des modèles cohérents qui facilitent la production de
+              documents tout en protégeant l'identité visuelle de l'organisation.
+            </p>
+            <ul>
+              <li>Modèles Word et PowerPoint</li>
+              <li>Gabarits de notes, rapports et communications</li>
+              <li>Documents organisationnels</li>
+              <li>Outils destinés aux gestionnaires</li>
+              <li>Documents promotionnels</li>
+              <li>Uniformisation de documents existants</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-creme">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Design graphique et identité visuelle</p>
+          <h2>Une présentation visuelle cohérente avec votre organisation.</h2>
+          <p class="texte-intro">
+            Mon expérience en conception graphique me permet de produire des outils
+            visuellement solides, adaptés à différents supports et conformes aux
+            normes graphiques établies.
+          </p>
+        </div>
+
+        <div class="grille-details">
+          <article class="carte">
+            <h3>Matériel visuel interne et externe</h3>
+            <p>
+              Je conçois des outils pour soutenir les campagnes, les initiatives
+              organisationnelles et les projets spéciaux.
+            </p>
+            <ul>
+              <li>Affiches et visuels de campagne</li>
+              <li>Dépliants et documents promotionnels</li>
+              <li>Visuels Web et intranet</li>
+              <li>Bannières et images numériques</li>
+              <li>Documents imprimés</li>
+              <li>Outils de mobilisation des employés</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Respect et évolution de l'identité visuelle</h3>
+            <p>
+              Je veille à la cohérence graphique des outils et à l'application
+              uniforme des normes de l'organisation.
+            </p>
+            <ul>
+              <li>Application des normes graphiques</li>
+              <li>Harmonisation des couleurs, polices et mises en page</li>
+              <li>Création et adaptation de gabarits</li>
+              <li>Révision de documents produits par différentes équipes</li>
+              <li>Soutien aux utilisateurs des modèles corporatifs</li>
+              <li>Développement d'outils visuels cohérents</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Affichage et signalisation interne</h3>
+            <p>
+              Je peux contribuer à uniformiser les outils d'orientation et
+              l'affichage dans plusieurs lieux ou établissements.
+            </p>
+            <ul>
+              <li>Affichage directionnel et informatif</li>
+              <li>Signalisation interne</li>
+              <li>Programme d'identité visuelle</li>
+              <li>Uniformisation des formats</li>
+              <li>Amélioration de la lisibilité</li>
+              <li>Adaptation à différents espaces</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Contenus Web et numériques</h3>
+            <p>
+              J'adapte les messages aux supports numériques afin de faciliter
+              leur lecture et leur compréhension.
+            </p>
+            <ul>
+              <li>Contenus pour intranet et site Web</li>
+              <li>Visuels pour infolettres</li>
+              <li>Bannières et tuiles numériques</li>
+              <li>Mise en page de contenus électroniques</li>
+              <li>Optimisation de la hiérarchie de l'information</li>
+              <li>Adaptation aux différents publics</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-sauge" id="approche">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Mon approche</p>
+          <h2>Du besoin initial à un outil prêt à utiliser.</h2>
+          <p class="texte-intro">
+            Chaque mandat commence par la compréhension du message, du public
+            et de l'utilisation réelle de l'outil.
+          </p>
+        </div>
+
+        <div class="etapes">
+          <div class="etape">
+            <strong>Clarifier le besoin.</strong><br>
+            Je précise l'objectif, le public visé, le contexte, le support et
+            les contraintes à respecter.
+          </div>
+
+          <div class="etape">
+            <strong>Structurer le contenu.</strong><br>
+            Je sélectionne l'information essentielle, j'organise les messages
+            et je simplifie les contenus complexes.
+          </div>
+
+          <div class="etape">
+            <strong>Définir la présentation visuelle.</strong><br>
+            Je choisis une hiérarchie, une mise en page et un traitement graphique
+            cohérents avec l'identité de l'organisation.
+          </div>
+
+          <div class="etape">
+            <strong>Produire et valider.</strong><br>
+            Je réalise l'outil, j'intègre les commentaires et je vérifie la
+            cohérence, la lisibilité et la qualité du résultat.
+          </div>
+
+          <div class="etape">
+            <strong>Livrer un outil durable.</strong><br>
+            Je fournis un document prêt à utiliser et, lorsque pertinent,
+            un modèle pouvant être réutilisé par les équipes.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="besoins">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Pour quels besoins?</p>
+          <h2>Cette expertise peut vous aider si...</h2>
+        </div>
+
+        <div class="defis">
+          <div class="defi">
+            <strong>Vos documents sont trop longs ou difficiles à comprendre.</strong>
+            <span>
+              Je restructure les contenus et je mets en évidence l'information essentielle.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Vos outils manquent de cohérence visuelle.</strong>
+            <span>
+              Je les harmonise selon votre identité et vos standards corporatifs.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Vos gestionnaires ont besoin de modèles simples à réutiliser.</strong>
+            <span>
+              Je crée des gabarits clairs, professionnels et faciles à adapter.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Une campagne interne doit attirer l'attention et mobiliser.</strong>
+            <span>
+              Je conçois des affiches, capsules et visuels adaptés aux différents canaux.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Vos équipes doivent expliquer un changement ou une nouvelle façon de faire.</strong>
+            <span>
+              Je produis des guides, procédures et outils visuels qui facilitent l'adoption.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Votre affichage ou votre signalisation manque d'uniformité.</strong>
+            <span>
+              Je peux contribuer à structurer et harmoniser les outils destinés aux usagers ou aux employés.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="conteneur">
+        <div class="precision">
+          <h2>Une expérience concrète</h2>
+          <p>
+            J'ai produit des guides, des infolettres, des présentations, des modèles,
+            des affiches, des visuels Web, des documents promotionnels et plus de
+            150 supports graphiques par année pour des campagnes internes et externes.
+          </p>
+          <p>
+            J'ai aussi contribué à des campagnes de sécurité, de changement et de
+            mobilisation, ainsi qu'à l'uniformisation de l'affichage et de la
+            signalisation dans plusieurs établissements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="conteneur">
+        <div class="appel">
+          <div>
+            <p class="sur-titre" style="color: #bdd3ce;">Parlons de vos outils de communication</p>
+            <h2>Votre message pourrait-il être plus clair, plus cohérent et plus marquant?</h2>
+            <p>
+              Une première discussion permettra de préciser vos besoins et de
+              déterminer le format le plus utile pour votre public.
+            </p>
+          </div>
+
+          <a class="bouton" href="mailto:pascale.guerin@hotmail.com">
+            Discuter de mon besoin
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur pied-interieur">
+      <div>
+        <strong style="color: var(--bleu);">Pascale Guérin</strong><br>
+        Structurer l'information. Simplifier les communications.
+      </div>
+
+      <div>© 2026 Pascale Guérin. Tous droits réservés.</div>
+    </div>
+  </footer>
+</body>
+</html>

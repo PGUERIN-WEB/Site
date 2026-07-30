@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Formation et accompagnement : formations SharePoint et Microsoft 365, guides, tutoriels, ateliers pratiques, soutien aux utilisateurs et accompagnement au changement.">
+  <title>Formation et accompagnement | Pascale Guérin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bleu: #013d5a;
+      --creme: #fcf3e3;
+      --sauge: #bdd3ce;
+      --vert: #708c69;
+      --blanc: #fffdf9;
+      --texte: #26363d;
+      --texte-doux: #5d6d73;
+      --bordure: #d8e2df;
+      --ombre: 0 18px 45px rgba(1, 61, 90, 0.12);
+      --rayon: 22px;
+      --largeur: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--texte);
+      background: var(--blanc);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      color: var(--bleu);
+      line-height: 1.15;
+    }
+
+    h1, h2 {
+      font-family: "Playfair Display", Georgia, serif;
+    }
+
+    h1 {
+      max-width: 930px;
+      margin-bottom: 24px;
+      font-size: clamp(2.7rem, 5.5vw, 5rem);
+      letter-spacing: -0.035em;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+    }
+
+    p { margin-top: 0; }
+
+    .conteneur {
+      width: min(var(--largeur), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .sur-titre {
+      margin-bottom: 14px;
+      color: var(--vert);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .texte-intro {
+      max-width: 850px;
+      color: var(--texte-doux);
+      font-size: 1.12rem;
+    }
+
+    .bouton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 22px;
+      border: 1px solid var(--bleu);
+      border-radius: 999px;
+      background: var(--bleu);
+      color: white;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .bouton:hover {
+      transform: translateY(-2px);
+      background: #002f46;
+    }
+
+    .entete {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(1, 61, 90, 0.08);
+      background: rgba(255, 253, 249, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .navigation {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .marque {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .monogramme {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--bleu);
+      color: white;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+    }
+
+    .nom-marque strong {
+      display: block;
+      color: var(--bleu);
+      font-size: 1rem;
+    }
+
+    .nom-marque span {
+      color: var(--texte-doux);
+      font-size: 0.72rem;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .menu a:hover { color: var(--vert); }
+
+    .hero-page {
+      padding-block: 110px 90px;
+      background:
+        radial-gradient(circle at 88% 10%, rgba(189, 211, 206, 0.78), transparent 26%),
+        linear-gradient(135deg, var(--creme), var(--blanc));
+    }
+
+    .hero-page .texte-intro { font-size: 1.18rem; }
+
+    .encadre-intro {
+      max-width: 880px;
+      margin-top: 34px;
+      padding: 22px 25px;
+      border-left: 5px solid var(--vert);
+      border-radius: 0 16px 16px 0;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--texte-doux);
+    }
+
+    section { padding-block: 100px; }
+
+    .fond-creme { background: var(--creme); }
+    .fond-sauge { background: #edf3f1; }
+    .en-tete-section { margin-bottom: 46px; }
+
+    .grille-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .carte {
+      padding: 32px;
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon);
+      background: white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .carte:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--ombre);
+    }
+
+    .carte p,
+    .carte li { color: var(--texte-doux); }
+
+    .carte ul {
+      margin: 18px 0 0;
+      padding-left: 20px;
+    }
+
+    .carte li + li { margin-top: 8px; }
+
+    .etapes {
+      counter-reset: etape;
+      display: grid;
+      gap: 18px;
+      max-width: 920px;
+    }
+
+    .etape {
+      position: relative;
+      padding: 26px 28px 26px 84px;
+      border: 1px solid var(--bordure);
+      border-radius: 18px;
+      background: white;
+    }
+
+    .etape::before {
+      counter-increment: etape;
+      content: counter(etape);
+      position: absolute;
+      left: 24px;
+      top: 23px;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--bleu);
+      color: white;
+      font-weight: 700;
+    }
+
+    .defis {
+      display: grid;
+      gap: 14px;
+    }
+
+    .defi {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 26px 30px;
+      border-bottom: 1px solid var(--bordure);
+    }
+
+    .defi strong {
+      color: var(--bleu);
+      font-size: 1.08rem;
+    }
+
+    .defi span { color: var(--texte-doux); }
+
+    .precision {
+      padding: 38px;
+      border-radius: 24px;
+      background: var(--sauge);
+    }
+
+    .precision h2 { font-size: 2rem; }
+    .precision p:last-child { margin-bottom: 0; }
+
+    .appel {
+      padding: 58px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      border-radius: 30px;
+      background: var(--bleu);
+      color: white;
+    }
+
+    .appel h2,
+    .appel p { color: white; }
+
+    .appel p {
+      margin-bottom: 0;
+      opacity: 0.86;
+    }
+
+    .appel .bouton {
+      border-color: white;
+      background: var(--creme);
+      color: var(--bleu);
+    }
+
+    .pied {
+      padding-block: 42px;
+      border-top: 1px solid var(--bordure);
+      background: var(--blanc);
+    }
+
+    .pied-interieur {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      color: var(--texte-doux);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      .menu { display: none; }
+      .grille-details { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 650px) {
+      section { padding-block: 72px; }
+
+      .conteneur {
+        width: min(var(--largeur), calc(100% - 26px));
+      }
+
+      .nom-marque span { display: none; }
+
+      .defi,
+      .appel { grid-template-columns: 1fr; }
+
+      .appel { padding: 38px 28px; }
+      .etape { padding-left: 72px; }
+
+      .pied-interieur {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="entete">
+    <div class="conteneur navigation">
+      <a class="marque" href="index.html" aria-label="Retour à l'accueil">
+        <span class="monogramme">PG</span>
+        <span class="nom-marque">
+          <strong>Pascale Guérin</strong>
+          <span>Formation • Accompagnement • Adoption numérique</span>
+        </span>
+      </a>
+
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#approche">Mon approche</a>
+        <a href="#besoins">Vos besoins</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-page">
+      <div class="conteneur">
+        <p class="sur-titre">Formation et accompagnement</p>
+
+        <h1>Aider les utilisateurs à comprendre, à adopter et à utiliser les outils avec confiance.</h1>
+
+        <p class="texte-intro">
+          La réussite d'un nouvel outil ou d'une nouvelle façon de travailler ne repose
+          pas uniquement sur la technologie. Elle dépend aussi de la clarté des explications,
+          de la qualité des ressources offertes et de l'accompagnement des personnes.
+        </p>
+
+        <div class="encadre-intro">
+          <strong>Je conçois des formations et des outils d'apprentissage adaptés au niveau réel des utilisateurs.</strong>
+          Mon approche mise sur des explications simples, des démonstrations concrètes,
+          des exercices pratiques et des ressources faciles à consulter après la formation.
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Ce que je peux faire pour vous</p>
+          <h2>Des formations concrètes et un accompagnement adapté à votre réalité.</h2>
+          <p class="texte-intro">
+            J'aide les équipes à développer leur autonomie, à mieux comprendre les outils
+            et à adopter des pratiques plus simples, plus cohérentes et plus efficaces.
+          </p>
+        </div>
+
+        <div class="grille-details">
+          <article class="carte">
+            <h3>Formations SharePoint et Microsoft 365</h3>
+            <p>
+              Je prépare des formations adaptées aux besoins des utilisateurs,
+              des contributeurs et des responsables de contenu.
+            </p>
+            <ul>
+              <li>Initiation à SharePoint</li>
+              <li>Création et mise à jour de pages</li>
+              <li>Utilisation des bibliothèques et des listes</li>
+              <li>Métadonnées, affichages et filtres</li>
+              <li>Bonnes pratiques de gestion documentaire</li>
+              <li>Utilisation d'outils Microsoft 365</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Ateliers pratiques</h3>
+            <p>
+              Je favorise l'apprentissage par la pratique afin que les participants
+              puissent appliquer immédiatement les notions présentées.
+            </p>
+            <ul>
+              <li>Exercices réalisés dans l'environnement de travail</li>
+              <li>Mises en situation adaptées aux tâches réelles</li>
+              <li>Démonstrations pas à pas</li>
+              <li>Périodes de questions</li>
+              <li>Résolution de problèmes concrets</li>
+              <li>Accompagnement en petit groupe</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Guides et tutoriels</h3>
+            <p>
+              Je crée des ressources simples qui permettent aux utilisateurs
+              de revoir les étapes et de travailler de façon plus autonome.
+            </p>
+            <ul>
+              <li>Guides illustrés</li>
+              <li>Procédures pas à pas</li>
+              <li>Aide-mémoire</li>
+              <li>Fiches de bonnes pratiques</li>
+              <li>Tutoriels vidéo ou captures d'écran</li>
+              <li>Foire aux questions</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Soutien aux utilisateurs</h3>
+            <p>
+              Je peux accompagner les utilisateurs après la formation afin
+              de consolider les apprentissages et de répondre aux difficultés.
+            </p>
+            <ul>
+              <li>Coaching individuel</li>
+              <li>Soutien aux contributeurs</li>
+              <li>Accompagnement des responsables de contenu</li>
+              <li>Cliniques de questions</li>
+              <li>Révision des pratiques</li>
+              <li>Suivi après la mise en œuvre</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-creme">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Accompagnement au changement</p>
+          <h2>Faciliter l'adoption de nouvelles façons de travailler.</h2>
+          <p class="texte-intro">
+            Une formation ponctuelle ne suffit pas toujours. J'accompagne les équipes
+            dans la compréhension des changements, l'appropriation des nouvelles pratiques
+            et l'utilisation cohérente des outils.
+          </p>
+        </div>
+
+        <div class="grille-details">
+          <article class="carte">
+            <h3>Préparer les utilisateurs</h3>
+            <p>
+              Je contribue à expliquer le changement avant son déploiement afin
+              de réduire l'incertitude et de clarifier les attentes.
+            </p>
+            <ul>
+              <li>Messages de préparation</li>
+              <li>Présentation des changements à venir</li>
+              <li>Explication des impacts pour les équipes</li>
+              <li>Identification des publics concernés</li>
+              <li>Calendrier de communication et de formation</li>
+              <li>Création d'outils de soutien</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Adapter les contenus aux différents publics</h3>
+            <p>
+              Je module les explications selon les rôles, les responsabilités,
+              le niveau d'aisance numérique et les besoins des équipes.
+            </p>
+            <ul>
+              <li>Employés</li>
+              <li>Gestionnaires</li>
+              <li>Contributeurs de contenu</li>
+              <li>Responsables de sections</li>
+              <li>Utilisateurs débutants</li>
+              <li>Utilisateurs intermédiaires</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Créer un parcours d'apprentissage</h3>
+            <p>
+              J'organise les formations et les ressources dans un ordre logique
+              afin de favoriser une progression simple et durable.
+            </p>
+            <ul>
+              <li>Notions de base</li>
+              <li>Formation liée aux tâches réelles</li>
+              <li>Exercices pratiques</li>
+              <li>Ressources complémentaires</li>
+              <li>Suivi des apprentissages</li>
+              <li>Perfectionnement selon les besoins</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Renforcer les bonnes pratiques</h3>
+            <p>
+              Je transforme les règles et les décisions organisationnelles
+              en consignes compréhensibles et applicables au quotidien.
+            </p>
+            <ul>
+              <li>Règles de publication</li>
+              <li>Bonnes pratiques SharePoint</li>
+              <li>Gestion documentaire</li>
+              <li>Nomenclature et métadonnées</li>
+              <li>Utilisation des gabarits</li>
+              <li>Responsabilités de mise à jour</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-sauge" id="approche">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Mon approche</p>
+          <h2>Une formation centrée sur les besoins réels des utilisateurs.</h2>
+          <p class="texte-intro">
+            Je privilégie des formations accessibles, concrètes et directement liées
+            aux tâches que les personnes doivent accomplir.
+          </p>
+        </div>
+
+        <div class="etapes">
+          <div class="etape">
+            <strong>Comprendre les besoins.</strong><br>
+            J'identifie les profils des participants, leurs responsabilités,
+            leur niveau de connaissance et les difficultés rencontrées.
+          </div>
+
+          <div class="etape">
+            <strong>Définir les objectifs d'apprentissage.</strong><br>
+            Je précise ce que les participants devront comprendre et être capables
+            de réaliser à la fin de la formation.
+          </div>
+
+          <div class="etape">
+            <strong>Préparer les contenus et les exercices.</strong><br>
+            Je construis une formation progressive, illustrée et adaptée
+            à l'environnement réel de l'organisation.
+          </div>
+
+          <div class="etape">
+            <strong>Former et faire pratiquer.</strong><br>
+            Je combine explications, démonstrations, exercices et échanges
+            afin de favoriser la compréhension et la mémorisation.
+          </div>
+
+          <div class="etape">
+            <strong>Documenter et accompagner.</strong><br>
+            Je fournis des guides ou des aide-mémoire et je peux offrir
+            un soutien complémentaire après la formation.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="besoins">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Pour quels besoins?</p>
+          <h2>Cette expertise peut vous aider si...</h2>
+        </div>
+
+        <div class="defis">
+          <div class="defi">
+            <strong>Vos employés utilisent peu ou mal les outils disponibles.</strong>
+            <span>
+              Je crée une formation concrète qui leur permet de comprendre les fonctions utiles à leur travail.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Les façons de faire varient d'une équipe à l'autre.</strong>
+            <span>
+              Je présente des règles communes et des bonnes pratiques simples à appliquer.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Vos utilisateurs oublient les étapes après la formation.</strong>
+            <span>
+              Je produis des guides, tutoriels et aide-mémoire qu'ils peuvent consulter au besoin.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Un nouvel outil ou une nouvelle procédure doit être déployé.</strong>
+            <span>
+              Je prépare les communications, les formations et les ressources nécessaires à son adoption.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Les contributeurs SharePoint ont besoin de plus d'autonomie.</strong>
+            <span>
+              Je les accompagne dans la création de pages, la gestion des contenus et l'application des règles.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Les gestionnaires doivent soutenir leurs équipes pendant un changement.</strong>
+            <span>
+              Je crée des outils et des messages qui leur permettent d'expliquer les changements clairement.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="conteneur">
+        <div class="precision">
+          <h2>Une formation adaptée, pas une formation générique</h2>
+          <p>
+            Je peux utiliser votre environnement, vos exemples, vos documents et vos
+            pratiques afin que les participants se reconnaissent dans les exercices
+            et puissent transférer rapidement les apprentissages dans leur travail.
+          </p>
+          <p>
+            Les formations peuvent être offertes en personne ou à distance,
+            en groupe, en petit groupe ou sous forme d'accompagnement individuel.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <div class="conteneur">
+        <div class="appel">
+          <div>
+            <p class="sur-titre" style="color: #bdd3ce;">Parlons de vos besoins de formation</p>
+            <h2>Vos équipes pourraient-elles gagner en autonomie et en confiance?</h2>
+            <p>
+              Une première discussion permettra de préciser les besoins,
+              les publics concernés et le format de formation le plus approprié.
+            </p>
+          </div>
+
+          <a class="bouton" href="mailto:pascale.guerin@hotmail.com">
+            Discuter de mon besoin
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur pied-interieur">
+      <div>
+        <strong style="color: var(--bleu);">Pascale Guérin</strong><br>
+        Structurer l'information. Simplifier les communications.
+      </div>
+
+      <div>
+        <a href="mailto:pascale.guerin@hotmail.com">pascale.guerin@hotmail.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

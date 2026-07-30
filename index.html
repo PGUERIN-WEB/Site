@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Profil professionnel de Pascale Guérin : communications numériques, outils de communication, infolettres, SharePoint, gestion documentaire, formation et accompagnement." name="description"/>
+<title>Pascale Guérin | Candidature spontanée – Ressources Falco</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --bleu: #013d5a;
+      --bleu-fonce: #002f46;
+      --creme: #fcf3e3;
+      --sauge: #bdd3ce;
+      --vert: #708c69;
+      --blanc: #fffdf9;
+      --texte: #26363d;
+      --texte-doux: #5d6d73;
+      --bordure: #d8e2df;
+      --ombre: 0 18px 45px rgba(1, 61, 90, 0.12);
+      --rayon: 22px;
+      --largeur: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--texte);
+      background: var(--blanc);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      color: var(--bleu);
+      line-height: 1.15;
+    }
+
+    h1,
+    h2 {
+      font-family: "Playfair Display", Georgia, serif;
+    }
+
+    h1 {
+      margin-bottom: 24px;
+      font-size: clamp(2.7rem, 6vw, 5.3rem);
+      letter-spacing: -0.035em;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 1.25rem;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    section {
+      padding-block: 100px;
+    }
+
+    .conteneur {
+      width: min(var(--largeur), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .sur-titre {
+      margin-bottom: 14px;
+      color: var(--vert);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .texte-intro {
+      max-width: 780px;
+      color: var(--texte-doux);
+      font-size: 1.1rem;
+    }
+
+    .fond-creme {
+      background: var(--creme);
+    }
+
+    .fond-sauge {
+      background: #edf3f1;
+    }
+
+    .en-tete-section {
+      margin-bottom: 46px;
+    }
+
+    .bouton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 22px;
+      border: 1px solid var(--bleu);
+      border-radius: 999px;
+      background: var(--bleu);
+      color: white;
+      font-weight: 700;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .bouton:hover {
+      transform: translateY(-2px);
+      background: var(--bleu-fonce);
+    }
+
+    .bouton-secondaire {
+      background: transparent;
+      color: var(--bleu);
+    }
+
+    .bouton-secondaire:hover {
+      color: white;
+    }
+
+    /* =========================
+       EN-TÊTE
+    ========================= */
+
+    .entete {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(1, 61, 90, 0.08);
+      background: rgba(255, 253, 249, 0.96);
+      backdrop-filter: blur(14px);
+    }
+
+    .navigation {
+      min-height: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .marque {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo-site {
+      width: auto;
+      height: 105px;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+
+    .logo-site:hover {
+      transform: scale(1.015);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 28px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .menu a {
+      position: relative;
+      color: var(--bleu);
+      transition: color 0.2s ease;
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      height: 2px;
+      background: var(--vert);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+
+    .menu a:hover {
+      color: var(--vert);
+    }
+
+    .menu a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* =========================
+       SECTION PRINCIPALE
+    ========================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 84% 18%,
+          rgba(189, 211, 206, 0.72),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          var(--creme),
+          var(--blanc)
+        );
+    }
+
+    .hero-grille {
+      min-height: 690px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      align-items: center;
+      gap: 70px;
+      padding-block: 75px;
+    }
+
+    .hero-texte p {
+      max-width: 690px;
+      margin-bottom: 32px;
+      color: var(--texte-doux);
+      font-size: 1.15rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .visuel-hero {
+      position: relative;
+      min-height: 220px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-end;
+    }
+
+/* =========================
+       SERVICES
+    ========================= */
+
+    .grille-services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .carte-service {
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon);
+      background: white;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .carte-service:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--ombre);
+    }
+
+    .numero-service {
+      margin-bottom: 34px;
+      color: var(--vert);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 2rem;
+    }
+
+    .carte-service p {
+      color: var(--texte-doux);
+    }
+
+    .lien-carte {
+      display: inline-block;
+      margin-top: auto;
+      padding-top: 18px;
+      color: var(--bleu);
+      font-weight: 700;
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .lien-carte:hover {
+      color: var(--vert);
+      transform: translateX(4px);
+    }
+
+    /* =========================
+       À PROPOS
+    ========================= */
+
+    .a-propos-grille {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .bloc-decoratif {
+      min-height: 470px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(1, 61, 90, 0.96),
+          rgba(112, 140, 105, 0.85)
+        );
+      box-shadow: var(--ombre);
+    }
+
+    .bloc-decoratif::before,
+    .bloc-decoratif::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 50%;
+    }
+
+    .bloc-decoratif::before {
+      top: 45px;
+      left: 45px;
+      width: 230px;
+      height: 230px;
+    }
+
+    .bloc-decoratif::after {
+      right: 50px;
+      bottom: 55px;
+      width: 140px;
+      height: 140px;
+    }
+
+    .citation {
+      position: absolute;
+      right: 35px;
+      bottom: 35px;
+      left: 35px;
+      padding: 28px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--bleu);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.4rem;
+      line-height: 1.35;
+    }
+
+    .liste-points {
+      display: grid;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .point {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+    }
+
+    .point::before {
+      content: "✓";
+      flex: 0 0 auto;
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--sauge);
+      color: var(--bleu);
+      font-weight: 800;
+    }
+
+    /* =========================
+       DÉFIS ET SOLUTIONS
+    ========================= */
+
+    .defis {
+      display: grid;
+      gap: 16px;
+    }
+
+    .defi {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 26px 30px;
+      border-bottom: 1px solid var(--bordure);
+    }
+
+    .defi strong {
+      color: var(--bleu);
+      font-size: 1.08rem;
+    }
+
+    .defi span {
+      color: var(--texte-doux);
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .appel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      padding: 58px;
+      border-radius: 30px;
+      background: var(--bleu);
+      color: white;
+    }
+
+    .appel h2,
+    .appel p {
+      color: white;
+    }
+
+    .appel p {
+      margin-bottom: 0;
+      opacity: 0.86;
+    }
+
+    .appel .bouton {
+      border-color: white;
+      background: var(--creme);
+      color: var(--bleu);
+    }
+
+    .appel .bouton:hover {
+      background: white;
+    }
+
+    /* =========================
+       PIED DE PAGE
+    ========================= */
+
+    .pied {
+      padding-block: 42px;
+      border-top: 1px solid var(--bordure);
+      background: var(--blanc);
+    }
+
+    .pied-interieur {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      color: var(--texte-doux);
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       VERSION TABLETTE
+    ========================= */
+
+    @media (max-width: 1050px) {
+      .navigation {
+        min-height: 105px;
+      }
+
+      .logo-site {
+        height: 87px;
+      }
+
+      .menu {
+        gap: 18px;
+        font-size: 0.86rem;
+      }
+
+      .hero-grille,
+      .a-propos-grille {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grille {
+        padding-block: 65px 90px;
+      }
+
+      .grille-services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .visuel-hero {
+        min-height: 470px;
+      }
+    }
+
+    /* =========================
+       VERSION MOBILE
+    ========================= */
+
+    @media (max-width: 760px) {
+      section {
+        padding-block: 72px;
+      }
+
+      .conteneur {
+        width: min(var(--largeur), calc(100% - 26px));
+      }
+
+      .navigation {
+        min-height: 90px;
+      }
+
+      .logo-site {
+        height: 72px;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .hero-grille {
+        min-height: auto;
+        gap: 35px;
+        padding-block: 55px 75px;
+      }
+
+      .visuel-hero {
+        min-height: 390px;
+      }
+
+      .carte-photo {
+        inset: 0 10px 45px;
+      }
+
+      .note-flottante {
+        right: 0;
+        width: 215px;
+      }
+
+      .grille-services {
+        grid-template-columns: 1fr;
+      }
+
+      .defi,
+      .appel {
+        grid-template-columns: 1fr;
+      }
+
+      .appel {
+        padding: 38px 28px;
+      }
+
+      .pied-interieur {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navigation {
+        min-height: 82px;
+      }
+
+      .logo-site {
+        height: 63px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .bouton {
+        width: 100%;
+      }
+    }
+  
+    .cv-grille {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+    }
+
+    .bloc-cv {
+      padding: 32px;
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon);
+      background: white;
+    }
+
+    .bloc-cv p {
+      color: var(--texte-doux);
+    }
+
+    .competences {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 30px;
+    }
+
+    .competences span {
+      padding: 9px 14px;
+      border: 1px solid rgba(1, 61, 90, 0.15);
+      border-radius: 999px;
+      background: var(--creme);
+      color: var(--bleu);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .valeurs-titre {
+      margin-top: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .cv-grille {
+        grid-template-columns: 1fr;
+      }
+    }
+</style>
+</head>
+<body>
+<!-- En-tête -->
+<header class="entete">
+<div class="conteneur navigation">
+<a aria-label="Retour à l'accueil" class="marque" href="#accueil">
+<img alt="Pascale Guérin — Structurer l'information. Simplifier les communications." class="logo-site" src="images/LOGO.png"/>
+</a>
+<nav aria-label="Navigation principale" class="menu"><a href="#profil">Profil</a><a href="#services">Expertise</a><a href="#falco">Contribution</a><a href="#parcours">Parcours</a><a href="#contact">Contact</a></nav>
+</div>
+</header>
+<main>
+<!-- Section principale -->
+<section class="hero" id="accueil">
+<div class="conteneur hero-grille">
+<div class="hero-texte">
+<p class="sur-titre">Rouyn-Noranda</p>
+<h1>Faire circuler l'information.<br/>Mobiliser les équipes.</h1>
+<p>Conseillère en information et communications numériques, j'accompagne les organisations dans l'amélioration de leurs communications internes, la structuration de l'information, l'optimisation des outils numériques, l'accompagnement des utilisateurs et la création de contenus professionnels.</p>
+<div class="hero-actions">
+<a class="bouton" href="#falco">Ce que je peux apporter</a>
+<a class="bouton bouton-secondaire" href="#contact">Consulter mes coordonnées</a>
+</div>
+</div>
+<div class="visuel-hero"><div class="note-flottante">
+<strong>Un profil polyvalent et rassembleur</strong>
+<span>Pour soutenir les communications, l’organisation de l’information et l’expérience des employés.</span>
+</div></div>
+</div>
+</section>
+<!-- Services -->
+<section id="services">
+<div class="conteneur">
+<div class="en-tete-section">
+<p class="sur-titre">Domaines d’expertise</p>
+<h2>Des compétences complémentaires pour soutenir une organisation en croissance.</h2>
+<p class="texte-intro">Mon expérience me permet d’intervenir autant dans la création des communications que dans l’organisation des contenus, la gestion des outils numériques et l’accompagnement des employés.</p>
+</div>
+<div class="grille-services"><article class="carte-service"><div class="numero-service">01</div><h3>Outils de communication</h3><p>Conception et mise en forme de guides, présentations, infographies, gabarits, documents corporatifs, contenus Web et outils destinés aux employés ou aux partenaires.</p><a class="lien-carte" href="Outils-communication.html">Communication claire et professionnelle →</a></article><article class="carte-service"><div class="numero-service">02</div><h3>Infolettres</h3><p>Planification éditoriale, rédaction, révision, création de modèles, intégration des contenus, préparation des envois et amélioration continue des communications périodiques.</p><a class="lien-carte" href="Infolettres.html">Informer et mobiliser les équipes →</a></article><article class="carte-service"><div class="numero-service">03</div><h3>SharePoint et gestion documentaire</h3><p>Architecture de l’information, organisation des contenus, bibliothèques, pages, listes, métadonnées, nomenclature, gouvernance et bonnes pratiques.</p><a class="lien-carte" href="SharePoint-gestion-doc.html">Voir mon expertise SharePoint →</a></article><article class="carte-service"><div class="numero-service">04</div><h3>Formation et accompagnement</h3><p>Création de guides et de tutoriels, formations SharePoint et Microsoft 365, ateliers pratiques, soutien aux utilisateurs et accompagnement dans l’adoption de nouvelles façons de travailler.</p><a class="lien-carte" href="Formation-accompagnement.html">Favoriser l’autonomie des utilisateurs →</a></article></div>
+</div>
+</section>
+<!-- À propos -->
+<section class="fond-creme" id="profil">
+<div class="conteneur a-propos-grille">
+<div class="bloc-decoratif">
+<div class="citation">« Plus de vingt ans d’expérience pour structurer l’information, simplifier les communications et accompagner les équipes. »</div>
+</div>
+<div>
+<p class="sur-titre">Profil professionnel</p>
+<h2>Transformer des besoins complexes en communications simples et en outils réellement utiles.</h2>
+<p class="texte-intro">Je travaille à la croisée des communications, de l’information, du numérique et du visuel. Cette polyvalence me permet de comprendre rapidement les besoins d’une organisation, de structurer les contenus et de créer des solutions accessibles pour les équipes.</p>
+<div class="liste-points">
+<div class="point">Rigueur, autonomie et grande capacité d’organisation.</div>
+<div class="point">Excellente capacité de rédaction, de vulgarisation et de synthèse.</div>
+<div class="point">Aptitude à collaborer avec les gestionnaires, les professionnels et les équipes techniques.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Défis -->
+<section id="falco">
+<div class="conteneur">
+<div class="en-tete-section">
+<p class="sur-titre">Ce que je peux apporter à Ressources Falco</p>
+<h2>Une ressource capable de structurer, produire, coordonner et accompagner.</h2>
+</div>
+<div class="defis"><div class="defi"><strong>Communications internes</strong><span>Organiser et diffuser l’information destinée aux employés, préparer des communications de gestion et créer des outils facilitant la compréhension des priorités et des changements.</span></div><div class="defi"><strong>Coordination des contenus</strong><span>Centraliser les demandes, structurer les contenus, assurer leur qualité et leur cohérence et maintenir des outils de référence fiables et faciles à consulter.</span></div><div class="defi"><strong>Intranet et environnement numérique</strong><span>Organiser un intranet SharePoint, créer des pages, des bibliothèques et des listes et mettre en place des règles de gouvernance simples de publication et de gestion documentaire.</span></div><div class="defi"><strong>Accompagnement des employés</strong><span>Concevoir des formations, des guides et des tutoriels afin d’aider les équipes à adopter les outils et à travailler de façon plus autonome et uniforme.</span></div><div class="defi"><strong>Image et outils corporatifs</strong><span>Créer des présentations, des documents, des gabarits et des contenus visuels professionnels respectant l’identité et les standards de l’organisation.</span></div><div class="defi"><strong>Soutien aux projets transversaux</strong><span>Collaborer avec plusieurs secteurs, traduire les besoins en solutions concrètes et assurer le suivi des livrables, des échéanciers et des contenus.</span></div></div>
+</div>
+</section>
+<!-- Contact -->
+<section class="fond-sauge" id="parcours">
+<div class="conteneur">
+<div class="en-tete-section">
+<p class="sur-titre">Parcours et compétences</p>
+<h2>Une expertise transférable à des organisations de tous les secteurs d'activité.</h2>
+<p class="texte-intro">Établie en Abitibi-Témiscamingue, je connais la réalité régionale, l’importance des relations de proximité et les besoins d’organisations qui doivent communiquer clairement avec des publics variés.</p>
+</div>
+<div class="cv-grille">
+<article class="bloc-cv">
+<h3>Profil</h3>
+<p>Plus de vingt ans en information, communications numériques, gestion de contenus, soutien aux équipes et réalisation d’outils professionnels.</p>
+<h3>Approche de travail</h3>
+<p>Analyse des besoins, structuration de l’information, planification, production, validation, mise en œuvre, documentation et accompagnement des utilisateurs.</p>
+</article>
+<article class="bloc-cv">
+<h3>Compétences clés</h3>
+<div class="competences">
+<span>Communication interne</span>
+<span>Rédaction et révision</span>
+<span>SharePoint Online</span>
+<span>Architecture de l’information</span>
+<span>Gestion documentaire</span>
+<span>Microsoft 365</span>
+<span>Formation des utilisateurs</span>
+<span>Création de guides</span>
+<span>Infolettres</span>
+<span>Présentations</span>
+<span>Infographies</span>
+<span>Gestion de contenu Web</span>
+<span>Gouvernance</span>
+<span>Coordination de projets</span>
+</div>
+<h3 class="valeurs-titre">Des valeurs qui me rejoignent</h3>
+<p><strong>Transparence, intégrité, détermination et audace :</strong> communiquer clairement, travailler avec rigueur, faire avancer les projets et proposer des améliorations concrètes.</p>
+</article>
+</div>
+</div>
+</section><section id="contact">
+<div class="conteneur">
+<div class="appel">
+<div>
+<p class="sur-titre" style="color: #bdd3ce;">Candidature spontanée</p>
+<h2>Contactez-moi! </h2>
+<p>Je serais heureuse de discuter d’un rôle qui réunirait communications, information, outils numériques, coordination et accompagnement des équipes.</p>
+</div>
+<a class="bouton" href="mailto:pascale.guerin@hotmail.com">Communiquer avec moi</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Pied de page -->
+<footer class="pied">
+<div class="conteneur pied-interieur">
+<div><strong style="color: var(--bleu);">Pascale Guérin</strong><br/>Conseillère en information et communications numériques</div>
+<div>Rouyn-Noranda, Québec | 2026</div>
+</div>
+</footer>
+</body>
+</html>

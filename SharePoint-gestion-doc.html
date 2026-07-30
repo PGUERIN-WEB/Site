@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Services SharePoint et gestion documentaire : organisation des contenus, pages, bibliothèques, listes, gouvernance, nomenclature, métadonnées et bonnes pratiques.">
+  <title>SharePoint et gestion documentaire | Pascale Guérin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bleu: #013d5a;
+      --creme: #fcf3e3;
+      --sauge: #bdd3ce;
+      --vert: #708c69;
+      --blanc: #fffdf9;
+      --texte: #26363d;
+      --texte-doux: #5d6d73;
+      --bordure: #d8e2df;
+      --ombre: 0 18px 45px rgba(1, 61, 90, 0.12);
+      --rayon: 22px;
+      --largeur: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--texte);
+      background: var(--blanc);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      color: var(--bleu);
+      line-height: 1.15;
+    }
+
+    h1,
+    h2 {
+      font-family: "Playfair Display", Georgia, serif;
+    }
+
+    h1 {
+      max-width: 930px;
+      margin-bottom: 24px;
+      font-size: clamp(2.7rem, 5.5vw, 5rem);
+      letter-spacing: -0.035em;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .conteneur {
+      width: min(var(--largeur), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .sur-titre {
+      margin-bottom: 14px;
+      color: var(--vert);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .texte-intro {
+      max-width: 850px;
+      color: var(--texte-doux);
+      font-size: 1.12rem;
+    }
+
+    .bouton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 22px;
+      border: 1px solid var(--bleu);
+      border-radius: 999px;
+      background: var(--bleu);
+      color: white;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .bouton:hover {
+      transform: translateY(-2px);
+      background: #002f46;
+    }
+
+    /* En-tête */
+    .entete {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(1, 61, 90, 0.08);
+      background: rgba(255, 253, 249, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .navigation {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .marque {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .monogramme {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--bleu);
+      color: white;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+    }
+
+    .nom-marque strong {
+      display: block;
+      color: var(--bleu);
+      font-size: 1rem;
+    }
+
+    .nom-marque span {
+      color: var(--texte-doux);
+      font-size: 0.72rem;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .menu a:hover {
+      color: var(--vert);
+    }
+
+    /* En-tête de page */
+    .hero-page {
+      padding-block: 110px 90px;
+      background:
+        radial-gradient(circle at 88% 10%, rgba(189, 211, 206, 0.78), transparent 26%),
+        linear-gradient(135deg, var(--creme), var(--blanc));
+    }
+
+    .hero-page .texte-intro {
+      font-size: 1.18rem;
+    }
+
+    .encadre-intro {
+      max-width: 880px;
+      margin-top: 34px;
+      padding: 22px 25px;
+      border-left: 5px solid var(--vert);
+      border-radius: 0 16px 16px 0;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--texte-doux);
+    }
+
+    section {
+      padding-block: 100px;
+    }
+
+    .fond-creme {
+      background: var(--creme);
+    }
+
+    .fond-sauge {
+      background: #edf3f1;
+    }
+
+    .en-tete-section {
+      margin-bottom: 46px;
+    }
+
+    /* Cartes */
+    .grille-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .carte {
+      padding: 32px;
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon);
+      background: white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .carte:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--ombre);
+    }
+
+    .carte p,
+    .carte li {
+      color: var(--texte-doux);
+    }
+
+    .carte ul {
+      margin: 18px 0 0;
+      padding-left: 20px;
+    }
+
+    .carte li + li {
+      margin-top: 8px;
+    }
+
+    /* Approche */
+    .etapes {
+      counter-reset: etape;
+      display: grid;
+      gap: 18px;
+      max-width: 920px;
+    }
+
+    .etape {
+      position: relative;
+      padding: 26px 28px 26px 84px;
+      border: 1px solid var(--bordure);
+      border-radius: 18px;
+      background: white;
+    }
+
+    .etape::before {
+      counter-increment: etape;
+      content: counter(etape);
+      position: absolute;
+      left: 24px;
+      top: 23px;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--bleu);
+      color: white;
+      font-weight: 700;
+    }
+
+    /* Besoins */
+    .defis {
+      display: grid;
+      gap: 14px;
+    }
+
+    .defi {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 26px 30px;
+      border-bottom: 1px solid var(--bordure);
+    }
+
+    .defi strong {
+      color: var(--bleu);
+      font-size: 1.08rem;
+    }
+
+    .defi span {
+      color: var(--texte-doux);
+    }
+
+    /* Précision */
+    .precision {
+      padding: 38px;
+      border-radius: 24px;
+      background: var(--sauge);
+    }
+
+    .precision h2 {
+      font-size: 2rem;
+    }
+
+    .precision p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Appel à l'action */
+    .appel {
+      padding: 58px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      border-radius: 30px;
+      background: var(--bleu);
+      color: white;
+    }
+
+    .appel h2,
+    .appel p {
+      color: white;
+    }
+
+    .appel p {
+      margin-bottom: 0;
+      opacity: 0.86;
+    }
+
+    .appel .bouton {
+      border-color: white;
+      background: var(--creme);
+      color: var(--bleu);
+    }
+
+    /* Pied de page */
+    .pied {
+      padding-block: 42px;
+      border-top: 1px solid var(--bordure);
+      background: var(--blanc);
+    }
+
+    .pied-interieur {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      color: var(--texte-doux);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      .menu {
+        display: none;
+      }
+
+      .grille-details {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      section {
+        padding-block: 72px;
+      }
+
+      .conteneur {
+        width: min(var(--largeur), calc(100% - 26px));
+      }
+
+      .nom-marque span {
+        display: none;
+      }
+
+      .defi,
+      .appel {
+        grid-template-columns: 1fr;
+      }
+
+      .appel {
+        padding: 38px 28px;
+      }
+
+      .etape {
+        padding-left: 72px;
+      }
+
+      .pied-interieur {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="entete">
+    <div class="conteneur navigation">
+      <a class="marque" href="index.html" aria-label="Retour à l'accueil">
+        <span class="monogramme">PG</span>
+        <span class="nom-marque">
+          <strong>Pascale Guérin</strong>
+          <span>SharePoint • Gestion documentaire • Formation</span>
+        </span>
+      </a>
+
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#approche">Mon approche</a>
+        <a href="#besoins">Vos besoins</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-page">
+      <div class="conteneur">
+        <p class="sur-titre">SharePoint et gestion documentaire</p>
+
+        <h1>Structurer l'information pour la rendre facile à trouver, à utiliser et à gérer.</h1>
+
+        <p class="texte-intro">
+          Votre environnement SharePoint est déjà en ligne, mais les contenus sont
+          difficiles à repérer, les documents sont dispersés ou les façons de faire
+          manquent d'uniformité? Je vous accompagne dans l'organisation de vos contenus
+          et la mise en place de pratiques documentaires claires, réalistes et durables.
+        </p>
+
+        <div class="encadre-intro">
+          <strong>Mon intervention commence une fois l'environnement SharePoint déployé.</strong>
+          Je travaille sur la structure, les contenus, les pages, les bibliothèques,
+          les listes, la gouvernance et les bonnes pratiques d'utilisation.
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Ce que je peux faire pour vous</p>
+          <h2>Un environnement mieux organisé et plus simple à utiliser.</h2>
+          <p class="texte-intro">
+            J'interviens directement dans votre environnement SharePoint existant afin
+            d'organiser l'information, d'améliorer l'expérience des utilisateurs et
+            d'établir des façons de faire cohérentes.
+          </p>
+        </div>
+
+        <div class="grille-details">
+          <article class="carte">
+            <h3>Organiser vos contenus SharePoint</h3>
+            <p>
+              Je vous aide à bâtir une structure logique afin que les utilisateurs
+              trouvent rapidement l'information dont ils ont besoin.
+            </p>
+            <ul>
+              <li>Analyse des besoins et des contenus existants</li>
+              <li>Organisation et regroupement de l'information</li>
+              <li>Architecture de l'information et navigation</li>
+              <li>Réorganisation de sites ou de sections existantes</li>
+              <li>Révision et simplification des contenus</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Créer des pages, des bibliothèques et des listes</h3>
+            <p>
+              Je crée et configure les éléments nécessaires dans votre environnement
+              SharePoint existant.
+            </p>
+            <ul>
+              <li>Pages d'information et pages de regroupement</li>
+              <li>Bibliothèques de documents</li>
+              <li>Listes SharePoint</li>
+              <li>Colonnes, affichages et filtres</li>
+              <li>Liens rapides et sections destinées à différents publics</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Écrire une gouvernance claire</h3>
+            <p>
+              Je documente des règles simples afin de maintenir un environnement
+              cohérent, compris par les responsables et facile à administrer.
+            </p>
+            <ul>
+              <li>Rôles et responsabilités</li>
+              <li>Règles de création des sites, des pages et des bibliothèques</li>
+              <li>Responsabilités liées à la mise à jour des contenus</li>
+              <li>Règles de publication et mécanismes de validation</li>
+              <li>Gestion des accès et des permissions</li>
+              <li>Fréquence de révision des contenus</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Définir les bonnes pratiques SharePoint</h3>
+            <p>
+              Je vous aide à adopter des façons de faire qui favorisent la cohérence,
+              la simplicité et la réduction des doublons.
+            </p>
+            <ul>
+              <li>Utilisation appropriée des bibliothèques et des listes</li>
+              <li>Navigation simple et pages faciles à consulter</li>
+              <li>Gestion des accès par groupes</li>
+              <li>Entretien et mise à jour des contenus</li>
+              <li>Utilisation cohérente des affichages et des filtres</li>
+              <li>Guides et consignes destinés aux contributeurs</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-creme">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Gestion documentaire</p>
+          <h2>Des documents mieux classés, mieux nommés et plus faciles à retrouver.</h2>
+          <p class="texte-intro">
+            La gestion documentaire ne se limite pas au classement des fichiers.
+            Elle repose sur une structure cohérente, des règles comprises par les
+            utilisateurs et des métadonnées réellement utiles.
+          </p>
+        </div>
+
+        <div class="grille-details">
+          <article class="carte">
+            <h3>Structurer les documents</h3>
+            <p>
+              Je vous accompagne dans l'organisation des documents afin de faciliter
+              leur classement, leur recherche et leur utilisation.
+            </p>
+            <ul>
+              <li>Analyse de la structure documentaire existante</li>
+              <li>Réorganisation des bibliothèques</li>
+              <li>Définition d'une structure de classement</li>
+              <li>Réduction des doublons</li>
+              <li>Clarification des emplacements de conservation</li>
+              <li>Identification des documents de référence</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Définir une nomenclature claire</h3>
+            <p>
+              Une nomenclature uniforme facilite la compréhension et la recherche
+              des documents, sans compliquer le travail des utilisateurs.
+            </p>
+            <ul>
+              <li>Éléments obligatoires dans les noms de fichiers</li>
+              <li>Ordre des renseignements</li>
+              <li>Utilisation uniforme des dates</li>
+              <li>Abréviations permises</li>
+              <li>Caractères à éviter</li>
+              <li>Règles adaptées aux différents types de documents</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Mettre en place les métadonnées</h3>
+            <p>
+              Les métadonnées permettent de classer et de retrouver les documents
+              sans dépendre uniquement d'une structure de dossiers.
+            </p>
+            <ul>
+              <li>Identification des métadonnées réellement utiles</li>
+              <li>Création de colonnes</li>
+              <li>Définition de valeurs et de choix contrôlés</li>
+              <li>Utilisation de types de contenu</li>
+              <li>Création d'affichages et de filtres</li>
+              <li>Règles de saisie simples et cohérentes</li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Documenter les bonnes pratiques</h3>
+            <p>
+              Je transforme les décisions prises en règles faciles à comprendre,
+              à appliquer et à maintenir dans le temps.
+            </p>
+            <ul>
+              <li>Règles de classement et de nommage</li>
+              <li>Consignes pour le dépôt et la mise à jour</li>
+              <li>Responsabilités des équipes</li>
+              <li>Utilisation des métadonnées</li>
+              <li>Guides pratiques et aide-mémoire</li>
+              <li>Accompagnement des utilisateurs</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-sauge" id="approche">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Mon approche</p>
+          <h2>Des solutions simples, réalistes et faciles à maintenir.</h2>
+          <p class="texte-intro">
+            Chaque organisation possède sa propre structure, ses propres pratiques
+            et ses propres contraintes. Mon approche tient compte de cette réalité.
+          </p>
+        </div>
+
+        <div class="etapes">
+          <div class="etape">
+            <strong>Comprendre vos besoins.</strong><br>
+            Je prends connaissance de votre contexte, de vos utilisateurs et de vos
+            façons de travailler.
+          </div>
+
+          <div class="etape">
+            <strong>Analyser l'environnement existant.</strong><br>
+            J'identifie les irritants, les contenus à réorganiser et les possibilités
+            d'amélioration.
+          </div>
+
+          <div class="etape">
+            <strong>Proposer une structure claire.</strong><br>
+            Je recommande une organisation adaptée à vos besoins et aux ressources
+            disponibles.
+          </div>
+
+          <div class="etape">
+            <strong>Mettre en place les éléments retenus.</strong><br>
+            Je crée ou réorganise les pages, les bibliothèques, les listes, les
+            colonnes et les affichages nécessaires.
+          </div>
+
+          <div class="etape">
+            <strong>Documenter et accompagner.</strong><br>
+            Je rédige les règles et les bonnes pratiques, puis j'accompagne les
+            personnes responsables dans leur utilisation.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="besoins">
+      <div class="conteneur">
+        <div class="en-tete-section">
+          <p class="sur-titre">Pour quels besoins?</p>
+          <h2>Cette expertise peut vous aider si...</h2>
+        </div>
+
+        <div class="defis">
+          <div class="defi">
+            <strong>Les employés trouvent difficilement l'information.</strong>
+            <span>
+              La navigation, les pages et les regroupements de contenus doivent être revus.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Les documents sont dispersés ou classés différemment.</strong>
+            <span>
+              Une structure documentaire commune et des règles de classement sont nécessaires.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Les bibliothèques contiennent trop de dossiers.</strong>
+            <span>
+              Les métadonnées, les colonnes et les affichages peuvent simplifier l'organisation.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Les rôles et les responsabilités ne sont pas clairs.</strong>
+            <span>
+              Une gouvernance peut encadrer la création, la publication et la mise à jour des contenus.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Les métadonnées sont absentes, trop nombreuses ou mal utilisées.</strong>
+            <span>
+              Une structure plus simple peut améliorer leur adoption et la recherche documentaire.
+            </span>
+          </div>
+
+          <div class="defi">
+            <strong>Les utilisateurs manquent de repères.</strong>
+            <span>
+              Des guides, des bonnes pratiques et de l'accompagnement peuvent soutenir leur autonomie.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="conteneur">
+        <div class="precision">
+          <h2>Une précision importante</h2>
+          <p>
+            Je ne réalise pas l'installation d'une ferme SharePoint, la configuration
+            initiale d'un tenant Microsoft 365 ni l'administration des serveurs.
+          </p>
+          <p>
+            Mon expertise porte sur l'organisation de l'information, les contenus,
+            la gouvernance, les pages, les bibliothèques, les listes, la nomenclature,
+            les métadonnées et les bonnes pratiques d'utilisation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="conteneur">
+        <div class="appel">
+          <div>
+            <p class="sur-titre" style="color: #bdd3ce;">Parlons de votre environnement SharePoint</p>
+            <h2>Votre information pourrait-elle être plus simple à trouver et à gérer?</h2>
+            <p>
+              Une première discussion permettra de cerner vos besoins et de déterminer
+              les améliorations les plus utiles pour vos équipes.
+            </p>
+          </div>
+
+          <a class="bouton" href="mailto:pascale.guerin@hotmail.com">
+            Discuter de mon projet
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur pied-interieur">
+      <div>
+        <strong style="color: var(--bleu);">Pascale Guérin</strong><br>
+        Structurer l'information. Simplifier les communications.
+      </div>
+
+      <div>© 2026 Pascale Guérin. Tous droits réservés.</div>
+    </div>
+  </footer>
+</body>
+</html>
